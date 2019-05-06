@@ -34,7 +34,7 @@ for i in range(1,5):
     pred_edges = [(predfor, node) for node in nodes]
     pred_set = set(pred_edges)
 
-    preds = len(actual.intersection(pred_set))
+    preds = len(set(actual).intersection(pred_set))
 
     print("Round" + str(i) + "\n")
     print(EvalUtils.mapk(actual,list(pred_set),k=10))
