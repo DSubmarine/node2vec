@@ -18,7 +18,8 @@ for i in range(1,5):
     predfor = str(df.at[randindex,'v1'])
     print("Predicting for:" + (predfor))
     actual = list(dftest[dftest["v1"].str.contains(predfor)]["v2"])
-    print(actual)
+    if (len(actual) == 0 ):
+        continue
 
     graph = nx.from_pandas_edgelist(dftrain,source='v1',
                                        target='v2',edge_attr='timestamp',
@@ -38,5 +39,5 @@ for i in range(1,5):
 
     print("Round" + str(i) + "\n")
     print(EvalUtils.mapk(actual,list(pred_set),k=10))
-    print(preds/actual)
+    print(preds/len(actual))
     print("\n")
