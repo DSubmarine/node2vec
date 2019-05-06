@@ -38,5 +38,5 @@ for i in range(1,5):
 
     print("Round" + str(i) + "\n")
     print(EvalUtils.mapk(actual,list(pred_set),k=10))
-    print(preds)
+    print(preds/actual)
     print("\n")
